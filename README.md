@@ -1,6 +1,9 @@
 # Unity 6000.3.10f1 제작.
 # MissionSystem
 
+
+Assets/Scenes/StartScene 으로 시작해주세요
+
 Key 
 A : Left
 D : Right
