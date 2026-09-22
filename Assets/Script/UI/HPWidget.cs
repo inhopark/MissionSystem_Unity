@@ -33,7 +33,7 @@ namespace MissionSystem
 
         public void SetVisible(bool visible)
         {
-            canvasGroup.alpha = visible ? 1f : 0f;
+            canvasGroup.alpha = visible == true ? 1f : 0f;
             canvasGroup.blocksRaycasts = false;
             canvasGroup.interactable = false;
         }

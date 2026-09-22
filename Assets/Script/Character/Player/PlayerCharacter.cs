@@ -145,7 +145,7 @@ namespace MissionSystem
                     visual.rotation = Quaternion.identity;
                 }
             }
-            else if (isMoving && visual != null)
+            else if (isMoving == true && visual != null)
             {
                 Quaternion targetRot = Quaternion.LookRotation(motion, Vector3.up);
                 visual.rotation = Quaternion.RotateTowards(visual.rotation, targetRot, bodyTurnSpeed * Time.deltaTime);
@@ -162,7 +162,7 @@ namespace MissionSystem
             }
 
             // Normal mode moves at walking pace; Defense mode's faster dodge reads better as a run.
-            string targetState = isMoving
+            string targetState = isMoving == true
                 ? (CurrentPlayMode == PlayMode.Defense ? "Run" : "Walk")
                 : "Idle";
 
@@ -178,10 +178,10 @@ namespace MissionSystem
         private void UpdateCameraBoom()
         {
             bool defense = CurrentPlayMode == PlayMode.Defense;
-            float targetArmLength = defense ? defenseArmLength : normalArmLength;
-            float targetForwardOffset = defense ? defenseForwardOffset : 0f;
-            float targetPitch = defense ? defensePitch : normalPitch;
-            float interpRate = defense ? defenseCameraInterpRate : normalCameraInterpRate;
+            float targetArmLength = defense == true ? defenseArmLength : normalArmLength;
+            float targetForwardOffset = defense == true ? defenseForwardOffset : 0f;
+            float targetPitch = defense == true ? defensePitch : normalPitch;
+            float interpRate = defense == true ? defenseCameraInterpRate : normalCameraInterpRate;
             float t = 1f - Mathf.Exp(-interpRate * Time.deltaTime);
 
             _currentArmLength = Mathf.Lerp(_currentArmLength, targetArmLength, t);

@@ -53,7 +53,7 @@ namespace MissionSystem
             }
         }
 
-        public float GetRemainingTime() => _running ? _remainingTime : -1f;
+        public float GetRemainingTime() => _running == true ? _remainingTime : -1f;
 
         private static MonsterSpawner CreateMonsterSpawner()
         {

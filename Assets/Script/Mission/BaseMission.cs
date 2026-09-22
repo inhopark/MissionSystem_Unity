@@ -44,10 +44,26 @@ namespace MissionSystem
 
             switch (newState)
             {
-                case MissionState.Ready: EnterReadyState(); break;
-                case MissionState.InProgress: EnterInProgressState(); break;
-                case MissionState.Succeeded: EnterSucceededState(); break;
-                case MissionState.Failed: EnterFailedState(); break;
+                case MissionState.Ready:
+                {
+                    EnterReadyState();
+                    break;
+                }
+                case MissionState.InProgress:
+                {
+                    EnterInProgressState();
+                    break;
+                }
+                case MissionState.Succeeded:
+                {
+                    EnterSucceededState();
+                    break;
+                }
+                case MissionState.Failed:
+                {
+                    EnterFailedState();
+                    break;
+                }
             }
 
             OnMissionStateChanged?.Invoke(newState);

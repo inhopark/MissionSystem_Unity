@@ -22,7 +22,7 @@ namespace MissionSystem
 
         private void Update()
         {
-            if (Keyboard.current != null && Keyboard.current.f8Key.wasPressedThisFrame)
+            if (Keyboard.current != null && Keyboard.current.f8Key.wasPressedThisFrame == true)
             {
                 ToggleAutoCycleMode();
             }
@@ -30,7 +30,7 @@ namespace MissionSystem
 
         public void ToggleAutoCycleMode()
         {
-            if (_active)
+            if (_active == true)
             {
                 if (_approachRoutine != null)
                 {
@@ -103,15 +103,21 @@ namespace MissionSystem
             switch (state)
             {
                 case MissionState.Ready:
+                {
                     StartCoroutine(AutoAgreeRoutine());
                     break;
+                }
                 case MissionState.InProgress:
+                {
                     StartCoroutine(AutoDodgeRoutine());
                     break;
+                }
                 case MissionState.Succeeded:
                 case MissionState.Failed:
+                {
                     StartCoroutine(AutoConfirmRoutine());
                     break;
+                }
             }
         }
 

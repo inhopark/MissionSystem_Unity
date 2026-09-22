@@ -78,7 +78,7 @@ namespace MissionSystem
             SetUICursorMode(true);
             _mainMissionWidget.Show();
 
-            if (IsMissionRequest())
+            if (IsMissionRequest() == true)
             {
                 RequestMission(missionUnique);
             }
@@ -126,7 +126,7 @@ namespace MissionSystem
 
         public void SetUICursorMode(bool uiMode)
         {
-            Cursor.lockState = uiMode ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.lockState = uiMode == true ? CursorLockMode.None : CursorLockMode.Locked;
             Cursor.visible = uiMode;
             _player?.SetMovementLocked(uiMode);
         }
@@ -152,13 +152,17 @@ namespace MissionSystem
             {
                 case MissionState.Ready:
                 case MissionState.InProgress:
+                {
                     _mainMissionWidget.SetWidgetState(newState);
                     break;
+                }
                 case MissionState.Succeeded:
                 case MissionState.Failed:
+                {
                     _mainController.SetDefenseHUDVisible(false);
                     ShowMissionResultWidget(newState);
                     break;
+                }
             }
 
             OnAnyMissionStateChanged?.Invoke(newState);

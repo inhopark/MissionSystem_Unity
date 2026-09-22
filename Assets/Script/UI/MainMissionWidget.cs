@@ -34,15 +34,19 @@ namespace MissionSystem
             switch (state)
             {
                 case MissionState.Ready:
+                {
                     titleText.text = MissionText.WaitForMission;
                     leftButtonText.text = MissionText.AgreeButton;
                     rightButtonText.text = MissionText.DisagreeButton;
                     break;
+                }
                 case MissionState.InProgress:
+                {
                     titleText.text = MissionText.MissionInProgress;
                     leftButtonText.text = MissionText.SuccessButton;
                     rightButtonText.text = MissionText.FailButton;
                     break;
+                }
             }
         }
     }
