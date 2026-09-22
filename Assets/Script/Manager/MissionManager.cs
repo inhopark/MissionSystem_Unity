@@ -70,7 +70,9 @@ namespace MissionSystem
         public void ShowMainMissionWidget(MissionUnique missionUnique, NPC npc)
         {
             if (CurrentMission != null && CurrentMission.State == MissionState.InProgress)
+            {
                 return;
+            }
 
             CurrentMissionNPC = npc;
             SetUICursorMode(true);
@@ -91,7 +93,9 @@ namespace MissionSystem
         public void HandleMissionButtonAction(MissionButtonAction action)
         {
             if (CurrentMission == null || CurrentMission.State != MissionState.Ready)
+            {
                 return;
+            }
 
             if (action == MissionButtonAction.Left)
             {
